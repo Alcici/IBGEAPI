@@ -29,28 +29,33 @@ public class IBGEAPISteps {
     @When("eu solicitar a população do município")
     public void eu_solicitar_a_populacao_do_municipio() {
         response = RestAssured.get("https://servicodados.ibge.gov.br/api/v1/localidades/municipios/" + codigoMunicipio);
+        System.out.println("Resposta da API (População do Município): " + response.asString());
     }
 
     @When("eu solicitar o PIB do estado")
     public void eu_solicitar_o_pib_do_estado() {
         response = RestAssured.get("https://servicodados.ibge.gov.br/api/v3/agregados/5938/periodos/2010/variaveis/37?localidades=N3[" + codigoEstado + "]");
+        System.out.println("Resposta da API (PIB do Estado): " + response.asString());
     }
 
     @When("eu solicitar os dados geográficos do estado")
     public void eu_solicitar_os_dados_geograficos_do_estado() {
         response = RestAssured.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados/" + codigoEstado);
+        System.out.println("Resposta da API (Dados Geográficos do Estado): " + response.asString());
     }
 
     @When("eu solicitar a taxa de alfabetização do estado")
     public void eu_solicitar_a_taxa_de_alfabetizacao_do_estado() {
         // Exemplo fictício, pois a API do IBGE não fornece diretamente a taxa de alfabetização
         response = null;
+        System.out.println("Resposta da API (Taxa de Alfabetização): Dados não disponíveis diretamente na API do IBGE");
     }
 
     @When("eu solicitar a taxa de mortalidade do estado")
     public void eu_solicitar_a_taxa_de_mortalidade_do_estado() {
         // Exemplo fictício, pois a API do IBGE não fornece diretamente a taxa de mortalidade
         response = null;
+        System.out.println("Resposta da API (Taxa de Mortalidade): Dados não disponíveis diretamente na API do IBGE");
     }
 
     @Then("a resposta deve conter o nome do município e a região")
